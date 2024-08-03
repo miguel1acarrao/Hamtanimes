@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Hamtaro Completo TP1</title>
+  <style>
+    video {
+      width: 100%;
+      max-width: 600px;
+      display: block;
+      margin: 10px auto;
+    }
+  </style>
+</head>
+<body>
+  <h1>Hamtaro Completo TP1</h1>
+  <p>ep 1</p>
+  <video id="video1" src="videoplayback.mp4" controls>videoplayback.mp4</video>
+  <button onclick="toggleFullscreen('video1')">Tela Cheia - Ep 1</button>
+  <p>ep 2</p>
+  <video id="video2" src="videoplayback (1).mp4" controls>videoplayback (1).mp4</video>
+  <button onclick="toggleFullscreen('video2')">Tela Cheia - Ep 2</button>
+
+  <script>
+    function toggleFullscreen(videoId) {
+      const video = document.getElementById(videoId);
+
+      if (!document.fullscreenElement) {
+        if (video.requestFullscreen) {
+          video.requestFullscreen();
+        } else if (video.mozRequestFullScreen) {
+          video.mozRequestFullScreen();
+        } else if (video.webkitRequestFullscreen) {
+          video.webkitRequestFullscreen();
+        } else if (video.msRequestFullscreen) {
+          video.msRequestFullscreen();
+        }
+      } else {
+        if (document.exitFullscreen) {
+          document.exitFullscreen();
+        } else if (document.mozCancelFullScreen) {
+          document.mozCancelFullScreen();
+        } else if (document.webkitExitFullscreen) {
+          document.webkitExitFullscreen();
+        } else if (document.msExitFullscreen) {
+          document.msExitFullscreen();
+        }
+      }
+    }
+  </script>
+</body>
+</html>
